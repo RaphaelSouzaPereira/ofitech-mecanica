@@ -36,7 +36,7 @@ module.exports = {
 
     let mecanica = await Mecanica.findById(mecanicaId);
     const apiResponse = await axios.get(
-      "http://localhost:3030/api/mediaAvaliacoes",
+      "https://ofitech-avaliacao.herokuapp.com/api/mediaAvaliacoes",
       { params: { mecanicaId: mecanicaId } }
     );
     mecanica.avaliacao = apiResponse.data.mediaAvaliacoes;

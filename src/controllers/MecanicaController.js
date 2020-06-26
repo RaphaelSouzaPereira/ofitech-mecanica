@@ -35,13 +35,14 @@ module.exports = {
     const { mecanicaId } = request.body;
 
     let mecanica = await Mecanica.findById(mecanicaId);
+    console.log('Cheguei no calcula media avalicoes');
     const apiResponse = await axios.get(
       "https://ofitech-avaliacao.herokuapp.com/api/mediaAvaliacoes",
       { params: { mecanicaId: mecanicaId } }
     );
     mecanica.avaliacao = apiResponse.data.mediaAvaliacoes;
     mecanica.preco = apiResponse.data.mediaPrecos;
-
+    console.log('passei no calcula media avalicoes');
     await Mecanica.update(mecanica);
 
     return response.status(204).json(mecanica);

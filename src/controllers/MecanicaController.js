@@ -43,7 +43,8 @@ module.exports = {
     mecanica.avaliacao = apiResponse.data.mediaAvaliacoes;
     mecanica.preco = apiResponse.data.mediaPrecos;
     console.log('passei no calcula media avalicoes');
-    await Mecanica.update(mecanica);
+    console.log(mecanica);
+    await Mecanica.findOneAndUpdate(mecanica);
     console.log('atualizei valores mecanica');
 
     return response.status(204).json(mecanica);

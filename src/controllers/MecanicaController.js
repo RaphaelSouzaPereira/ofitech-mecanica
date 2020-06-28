@@ -44,6 +44,7 @@ module.exports = {
     mecanica.preco = apiResponse.data.mediaPrecos;
     console.log('passei no calcula media avalicoes');
     await Mecanica.update(mecanica);
+    console.log('atualizei valores mecanica');
 
     return response.status(204).json(mecanica);
   },
